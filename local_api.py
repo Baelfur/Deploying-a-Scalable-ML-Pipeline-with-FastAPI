@@ -29,7 +29,7 @@ data = {
     "native-country": "United-States",
 }
 
-# TODO: send a POST using the data above
+# TODO: send a POST using the data above to test
 r = requests.post("http://127.0.0.1:8000/data/", json=data)
 
 # TODO: print the status code
