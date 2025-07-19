@@ -6,6 +6,19 @@ from sklearn.ensemble import RandomForestClassifier
 from ml.model import train_model, inference, compute_model_metrics
 from ml.data import process_data
 
+from fastapi.testclient import TestClient
+
+# Import our app from main.py.
+from main import app
+
+# Instantiate the testing client with our app.
+client = TestClient(app)
+
+# Write tests using the same syntax as with the requests module.
+def test_api_locally_get_root():
+    r = client.get("/")
+    assert r.status_code == 200
+
 # Synthetic data fixture
 def get_sample_data():
     data = pd.DataFrame({
